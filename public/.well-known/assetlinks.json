@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kupi.israel_trivia",
+      "sha256_cert_fingerprints": [
+        "7C:FF:B8:4B:1C:53:FD:F2:E0:57:FA:7D:BF:4A:10:0C:7F:3E:AB:D6:66:37:8E:4F:C1:07:D9:06:F4:8D:85:A5",
+        "28:0B:1B:09:60:2A:22:49:18:A4:C8:EF:56:DF:6E:22:4C:AB:D3:E8:4E:F1:FC:B1:B9:E2:C3:10:B9:4E:28:AF"
+      ]
+    }
+  }
+]
