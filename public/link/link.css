@@ -1,0 +1,207 @@
+/* Invite link fallback pages (Part 5A): the app's palette (Trivia.Core.Palette) and fonts, served from this site. */
+@font-face {
+  font-family: 'Secular One';
+  src: url('SecularOne-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Assistant';
+  src: url('Assistant-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+:root {
+  --navy: #191c4d;
+  --navy2: #0f1238;
+  --pink: #f54be6;
+  --pinkD: #a81fa0;
+  --mint: #3ee88e;
+  --mintD: #17a35c;
+  --gold: #ffcf3f;
+  --goldD: #d18a00;
+  --cyan: #22c6f0;
+  --lock: #2b3a86;
+  --white: #ffffff;
+  --accent: var(--gold);
+  --accentD: var(--goldD);
+  color-scheme: dark;
+}
+body.party {
+  --accent: var(--pink);
+  --accentD: var(--pinkD);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 40px;
+  color: var(--white);
+  font-family: 'Assistant', 'Arial Hebrew', sans-serif;
+  font-weight: 800;
+  background-color: var(--navy2);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(245, 75, 230, 0.28), transparent 38%),
+    radial-gradient(circle at 85% 88%, rgba(34, 198, 240, 0.22), transparent 42%),
+    radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.6px),
+    linear-gradient(170deg, var(--navy) 0%, var(--navy2) 100%);
+  background-size: auto, auto, 22px 22px, auto;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+.brand {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--lock);
+  box-shadow: 0 4px 0 var(--navy2);
+  font-family: 'Secular One', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  animation: rise 0.5s ease-out both;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-family: 'Secular One', sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 8vw, 38px);
+  line-height: 1.15;
+  animation: rise 0.5s 0.08s ease-out both;
+}
+
+.lead {
+  margin: 0 0 22px;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.78);
+  animation: rise 0.5s 0.16s ease-out both;
+}
+
+/* The code: one chunky tile per digit, read left to right like the app's code field. */
+.code {
+  direction: ltr;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 14px;
+  min-height: 72px;
+}
+.code .d {
+  width: clamp(34px, 10.5vw, 48px);
+  height: clamp(54px, 15vw, 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--accent);
+  box-shadow: 0 6px 0 var(--accentD), 0 10px 18px rgba(0, 0, 0, 0.35);
+  color: var(--navy2);
+  font-family: 'Secular One', sans-serif;
+  font-size: clamp(30px, 9vw, 42px);
+  animation: drop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  animation-delay: calc(0.25s + var(--i, 0) * 0.06s);
+}
+.code .gap { width: 8px; }
+
+.copy {
+  margin: 4px 0 26px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 16px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  animation: rise 0.5s 0.6s ease-out both;
+}
+.copy:active { transform: translateY(1px); }
+.copy.done { box-shadow: inset 0 0 0 2px var(--mint); color: var(--mint); }
+
+.how {
+  margin: 0 0 28px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(15, 18, 56, 0.72);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  font-size: 19px;
+  line-height: 1.4;
+  animation: rise 0.5s 0.7s ease-out both;
+}
+.how small {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.missing { display: none; }
+body.no-code .code, body.no-code .copy { display: none; }
+body.no-code .missing {
+  display: block;
+  margin: 0 0 24px;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.stores-title {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  animation: rise 0.5s 0.8s ease-out both;
+}
+.stores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  animation: rise 0.5s 0.88s ease-out both;
+}
+.store {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 14px;
+  background: var(--lock);
+  box-shadow: 0 5px 0 var(--navy2);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.store span {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.store.mine {
+  background: var(--mint);
+  box-shadow: 0 5px 0 var(--mintD);
+  color: var(--navy2);
+}
+.store.mine span { color: rgba(15, 18, 56, 0.7); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-26px) scale(0.85); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}

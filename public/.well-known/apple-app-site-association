@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["F9C6A5J867.com.kupi.israeltrivia"],
+        "appID": "F9C6A5J867.com.kupi.israeltrivia",
+        "components": [
+          { "/": "/i/*", "comment": "friend invite: /i/<8-digit code>" },
+          { "/": "/p/*", "comment": "party invite: /p/<6-digit code>" }
+        ],
+        "paths": ["/i/*", "/p/*"]
+      }
+    ]
+  }
+}
